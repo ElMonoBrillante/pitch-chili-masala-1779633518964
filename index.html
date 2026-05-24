@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="sv" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Chili Masala — Äkta Punjabi-smaker sedan 2008</title>
+  <meta name="description" content="Vi serverar traditionella pakistanska och indiska rätter i Stockholm sedan 2008" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Chili Masala" />
+  <meta property="og:description" content="Vi serverar traditionella pakistanska och indiska rätter i Stockholm sedan 2008" />
+  <meta property="og:type" content="website" />
+
+  <!-- Tailwind CSS via CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <!-- Serif companion for headlines — adds editorial warmth to the hospitality variant -->
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@500;600;700;800&display=swap" rel="stylesheet" />
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans:    ['Manrope', 'ui-sans-serif', 'system-ui'],
+            display: ['Fraunces', 'Georgia', 'serif'],
+          },
+        }
+      }
+    }
+  </script>
+
+  <style>
+    /*
+     * INDUSTRY-HOSPITALITY TEMPLATE
+     * Personality: warm, welcoming, editorial. Photos lead.
+     * Distinct from the default template: serif display font, generous rounded
+     * corners, split-hero (image right + copy left rather than full-bleed),
+     * gallery promoted high.
+     */
+    :root {
+      --clr-accent:      #f98004;
+      --clr-accent-dark: #c76603;
+      --clr-accent-light:#f7f2ed;
+    }
+
+    body {
+      /* Subtle warm tint behind everything — softer than pure white */
+      background-color: #fafaf7;
+    }
+
+    .btn-primary {
+      background-color: var(--clr-accent);
+      color: #ffffff;
+      transition: background-color 0.2s ease, transform 0.15s ease;
+    }
+    .btn-primary:hover {
+      background-color: var(--clr-accent-dark);
+      transform: translateY(-1px);
+    }
+    .btn-outline {
+      border-color: var(--clr-accent);
+      color: var(--clr-accent);
+      transition: all 0.2s ease;
+    }
+    .btn-outline:hover {
+      background-color: var(--clr-accent);
+      color: #ffffff;
+    }
+    .text-accent      { color: var(--clr-accent); }
+    .bg-accent        { background-color: var(--clr-accent); }
+    .bg-accent-light  { background-color: var(--clr-accent-light); }
+    .border-accent    { border-color: var(--clr-accent); }
+
+    .font-display { font-family: 'Fraunces', Georgia, serif; }
+
+    [id] { scroll-margin-top: 80px; }
+
+    .fade-on-scroll { opacity: 0; transform: translateY(20px); transition: opacity 0.8s ease-out, transform 0.8s ease-out; }
+    .fade-on-scroll.visible { opacity: 1; transform: translateY(0); }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .animate-fade-up { animation: fadeUp 0.9s ease-out forwards; opacity: 0; }
+    .animate-delay-1 { animation-delay: 0.15s; }
+    .animate-delay-2 { animation-delay: 0.30s; }
+
+    .gallery-item img { transition: transform 0.8s ease; }
+    .gallery-item:hover img { transform: scale(1.05); }
+
+    /* Decorative serif initial / mark */
+    .hospitality-mark {
+      width: 48px;
+      height: 1px;
+      background-color: var(--clr-accent);
+      display: inline-block;
+      vertical-align: middle;
+      margin-right: 12px;
+    }
+  </style>
+</head>
+
+<body class="font-sans antialiased text-gray-800">
+
+  <!-- ═══════════════════════════════════════════════
+       NAVIGATION — lighter, more refined
+  ═══════════════════════════════════════════════ -->
+  <header class="fixed top-0 inset-x-0 z-50 bg-white/95 backdrop-blur-md border-b border-gray-100">
+    <div class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
+      <a href="#" class="flex items-center gap-3" aria-label="Chili Masala">
+        <img src="assets/logo.png" alt="Chili Masala" class="h-9 w-auto" />
+      </a>
+
+      <nav class="hidden md:flex items-center gap-10 text-sm font-medium text-gray-700">
+        <a href="#services" class="hover:text-accent transition-colors">Tjänster</a>
+        
+        <a href="#about"    class="hover:text-accent transition-colors">Om oss</a>
+        <a href="#contact"  class="hover:text-accent transition-colors">Kontakt</a>
+      </nav>
+
+      <a href="tel:+468277000"
+         class="btn-primary hidden md:inline-flex items-center gap-2 px-5 py-2 rounded-full text-sm font-semibold">
+        Ring oss
+      </a>
+
+      <label for="mobile-menu-toggle" class="md:hidden cursor-pointer p-2" aria-label="Menu">
+        <svg class="w-6 h-6 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </label>
+    </div>
+    <input type="checkbox" id="mobile-menu-toggle" class="hidden peer" />
+    <div class="hidden peer-checked:block md:hidden bg-white border-t border-gray-100 px-6 py-4 space-y-3 text-sm font-medium text-gray-700">
+      <a href="#services" class="block hover:text-accent">Tjänster</a>
+      
+      <a href="#about"    class="block hover:text-accent">Om oss</a>
+      <a href="#contact"  class="block hover:text-accent">Kontakt</a>
+      <a href="tel:+468277000" class="btn-primary inline-block mt-2 px-5 py-2.5 rounded-full text-sm font-semibold text-center">
+        Ring oss
+      </a>
+    </div>
+  </header>
+
+  <!-- ═══════════════════════════════════════════════
+       HERO — split layout: copy left, photo right (editorial style)
+  ═══════════════════════════════════════════════ -->
+  <section id="hero" class="relative pt-28 pb-16 md:pt-36 md:pb-24 overflow-hidden">
+    <div class="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
+      <div class="order-2 md:order-1">
+        <p class="text-xs font-medium uppercase tracking-[0.3em] mb-5 text-accent animate-fade-up">
+          <span class="hospitality-mark"></span>Punjabi-restaurang
+        </p>
+        <h1 class="font-display text-4xl md:text-5xl lg:text-6xl font-semibold leading-[1.1] mb-6 animate-fade-up animate-delay-1 text-gray-900">
+          Upplev de autentiska smakerna från Punjab
+        </h1>
+        <p class="text-lg md:text-xl text-gray-600 mb-10 leading-relaxed animate-fade-up animate-delay-2">
+          Vi serverar traditionella pakistanska och indiska rätter i Stockholm sedan 2008
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 animate-fade-up animate-delay-2">
+          <a href="tel:+468277000" class="btn-primary px-8 py-4 rounded-full text-base font-semibold inline-flex items-center justify-center gap-2">
+            Ring och boka bord
+          </a>
+          <a href="#services" class="btn-outline border-2 px-8 py-4 rounded-full text-base font-semibold inline-flex items-center justify-center gap-2 bg-white">
+            Se våra tjänster
+          </a>
+        </div>
+      </div>
+      <div class="order-1 md:order-2 fade-on-scroll">
+        <div class="relative aspect-[4/5] rounded-3xl overflow-hidden shadow-2xl">
+          <img src="https://images.unsplash.com/photo-1589778655375-3e622a9fc91c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w5NTc1NDd8MHwxfHJhbmRvbXx8fHx8fHx8fDE3Nzk2MzM1MDJ8&ixlib=rb-4.1.0&q=80&w=1080" alt="Chili Masala" class="w-full h-full object-cover" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════
+       TRUST STRIP (conditional)
+  ═══════════════════════════════════════════════ -->
+  
+
+  <!-- ═══════════════════════════════════════════════
+       SERVICES — softer card treatment
+  ═══════════════════════════════════════════════ -->
+  <section id="services" class="py-24 md:py-32">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="max-w-2xl mb-16 fade-on-scroll text-center mx-auto">
+        <p class="text-xs font-medium uppercase tracking-[0.3em] text-accent mb-4">
+          <span class="hospitality-mark"></span>Vad vi gör
+        </p>
+        <h2 class="font-display text-3xl md:text-5xl font-semibold text-gray-900 leading-tight">Våra tjänster</h2>
+      </div>
+      <!--
+        Rounded card grid with generous gaps — the warmer counterpart to the
+        trades template's sharp bordered grid.
+      -->
+      <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        
+        <div class="fade-on-scroll bg-white p-8 md:p-10 hover:bg-gray-50 transition-colors">
+          <div class="text-accent mb-5"><svg xmlns="http://www.w3.org/2000/svg" class="w-9 h-9" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 7h13v9a4 4 0 01-4 4H8a4 4 0 01-4-4V7zM17 9h2a2 2 0 012 2v2a2 2 0 01-2 2h-2M8 3v2M12 3v2" /></svg></div>
+          <h3 class="text-xl font-bold text-gray-900 mb-3 leading-snug">Punjabi Curry-klassiker</h3>
+          <p class="text-gray-600 leading-relaxed">Traditionella curryrätter tillagade i Degh enligt urgamla recept från Punjab. Varje rätt är full av autentiska smaker och dofter.</p>
+        </div>
+
+        <div class="fade-on-scroll bg-white p-8 md:p-10 hover:bg-gray-50 transition-colors">
+          <div class="text-accent mb-5"><svg xmlns="http://www.w3.org/2000/svg" class="w-9 h-9" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3c2 2 4 4 4 7a4 4 0 11-8 0c0-2 1-3 1-3s-1 5 3 5c0-3 0-6 0-9z" /></svg></div>
+          <h3 class="text-xl font-bold text-gray-900 mb-3 leading-snug">Tandoori-specialiteter</h3>
+          <p class="text-gray-600 leading-relaxed">Grillat kött och fågel marinerat i traditionella kryddor och tillagat i tandoorugn för den äkta Punjabi-smaken.</p>
+        </div>
+
+        <div class="fade-on-scroll bg-white p-8 md:p-10 hover:bg-gray-50 transition-colors">
+          <div class="text-accent mb-5"><svg xmlns="http://www.w3.org/2000/svg" class="w-9 h-9" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 3c0 8-5 16-13 16a7 7 0 010-14c4 0 8 1 13-2zM3 21l8-8" /></svg></div>
+          <h3 class="text-xl font-bold text-gray-900 mb-3 leading-snug">Vegetariska rätter</h3>
+          <p class="text-gray-600 leading-relaxed">Ett generöst urval av vegetariska rätter och risperfekta biryani-rätter, tillagade med omsorg enligt traditionella Punjabi-metoder.</p>
+        </div>
+
+        <div class="fade-on-scroll bg-white p-8 md:p-10 hover:bg-gray-50 transition-colors">
+          <div class="text-accent mb-5"><svg xmlns="http://www.w3.org/2000/svg" class="w-9 h-9" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 7h14l-1 13H6L5 7zM9 7V5a3 3 0 016 0v2" /></svg></div>
+          <h3 class="text-xl font-bold text-gray-900 mb-3 leading-snug">Catering &amp; avhämtning</h3>
+          <p class="text-gray-600 leading-relaxed">Beställ våra autentiska rätter för ditt event eller hämta hem. Samma höga kvalitet och traditionella smak, anpassat efter dina behov.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════
+       GALLERY (conditional) — promoted ABOVE about in hospitality
+  ═══════════════════════════════════════════════ -->
+  
+
+  <!-- ═══════════════════════════════════════════════
+       ABOUT + WHY US
+  ═══════════════════════════════════════════════ -->
+  <section id="about" class="py-24 md:py-32 bg-white">
+    <div class="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-16 items-center">
+      <div class="fade-on-scroll order-2 md:order-1"><div class="bg-accent-light rounded-3xl aspect-[4/5] flex items-center justify-center p-12">
+            <div class="text-center">
+              <svg class="w-16 h-16 text-accent mx-auto mb-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M12 3l8 3v6c0 5-4 8-8 9-4-1-8-4-8-9V6l8-3z" /><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4" />
+              </svg>
+              <p class="text-accent font-semibold text-lg leading-tight">Äkta Punjabi-smaker sedan 2008</p>
+            </div>
+          </div></div>
+      <div class="fade-on-scroll order-1 md:order-2">
+        <p class="text-xs font-medium uppercase tracking-[0.3em] text-accent mb-4">
+          <span class="hospitality-mark"></span>Om oss
+        </p>
+        <h2 class="font-display text-3xl md:text-5xl font-semibold text-gray-900 leading-tight mb-6">
+          Tradition möter kärlek till mat
+        </h2>
+        <p class="text-lg text-gray-600 leading-relaxed mb-8">Sedan 2008 har vi välkomnat gäster till vår restaurang i Solna med traditionella maträtter från Punjab-provinsen i Pakistan och Indien. Vi tillagar våra rätter i Degh enligt urgamla metoder, med recept som ärvts genom generationer. Matlagning är en konst som bygger på kärlek till maten och gedigen kunskap.</p>
+
+        <p class="text-xs font-medium uppercase tracking-[0.3em] text-accent mb-4">Varför välja oss</p>
+        <ul class="space-y-4">
+        <li class="flex items-start gap-4">
+          <span class="mt-1 flex-shrink-0 w-6 h-6 rounded-full bg-accent flex items-center justify-center text-white">
+            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="3">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+            </svg>
+          </span>
+          <div>
+            <span class="font-semibold text-gray-900 block">Tillagat i Degh</span>
+            <span class="text-gray-600 text-sm">Vi använder traditionella Degh-kärl för att ge våra rätter den autentiska smak som bevarats i århundraden.</span>
+          </div>
+        </li>
+
+        <li class="flex items-start gap-4">
+          <span class="mt-1 flex-shrink-0 w-6 h-6 rounded-full bg-accent flex items-center justify-center text-white">
+            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="3">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+            </svg>
+          </span>
+          <div>
+            <span class="font-semibold text-gray-900 block">Generationsrecept</span>
+            <span class="text-gray-600 text-sm">Våra recept ärvs från generation till generation och baseras på välbevarade familjehemligheter från Punjab.</span>
+          </div>
+        </li>
+
+        <li class="flex items-start gap-4">
+          <span class="mt-1 flex-shrink-0 w-6 h-6 rounded-full bg-accent flex items-center justify-center text-white">
+            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="3">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+            </svg>
+          </span>
+          <div>
+            <span class="font-semibold text-gray-900 block">Mångårig erfarenhet</span>
+            <span class="text-gray-600 text-sm">Sedan 2008 har vi skapat en välkomnande miljö där kvalitet och tradition står i centrum.</span>
+          </div>
+        </li></ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════
+       STATS COUNTER (conditional)
+  ═══════════════════════════════════════════════ -->
+  
+
+  <!-- ═══════════════════════════════════════════════
+       CONTACT — warm-toned, hours/location forward
+  ═══════════════════════════════════════════════ -->
+  <section id="contact" class="py-24 md:py-32">
+    <div class="max-w-5xl mx-auto px-6">
+      <div class="bg-accent-light rounded-3xl p-10 md:p-16 fade-on-scroll">
+        <div class="max-w-2xl">
+          <p class="text-xs font-medium uppercase tracking-[0.3em] text-accent mb-4">
+            <span class="hospitality-mark"></span>Kontakta oss
+          </p>
+          <h2 class="font-display text-3xl md:text-5xl font-semibold text-gray-900 leading-tight mb-6">Besök oss i Solna</h2>
+          <p class="text-lg text-gray-700 mb-8 leading-relaxed">Vi värdesätter såväl gamla som nya gäster och uppskattar att ni vill dela matglädjen med oss. Välkomna till vår restaurang i Stockholm, Solna!</p>
+          <div class="flex flex-col sm:flex-row gap-4">
+            <a href="tel:+468277000" class="btn-primary px-8 py-4 rounded-full text-base font-semibold inline-flex items-center justify-center gap-2">
+              Ring oss
+            </a>
+            <a href="tel:+468277000" class="btn-outline border-2 px-8 py-4 rounded-full text-base font-semibold inline-flex items-center justify-center gap-2">
+         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h2.3a1 1 0 011 .8l1 4.5a1 1 0 01-.3 1L7.5 11a12 12 0 005.5 5.5l1.6-1.5a1 1 0 011-.3l4.5 1a1 1 0 01.8 1V19a2 2 0 01-2 2h-1A17 17 0 013 5z" /></svg>
+         08-27 70 00
+       </a>
+          </div>
+        </div>
+
+        <div class="mt-12 pt-10 border-t border-gray-200/60 grid sm:grid-cols-2 lg:grid-cols-3 gap-6 text-sm">
+          
+      <div>
+        <p class="text-xs font-semibold uppercase tracking-wider text-accent mb-1">Ring oss</p>
+        <a href="tel:+468277000" class="text-gray-900 font-medium hover:text-accent">08-27 70 00</a>
+      </div>
+
+      <div>
+        <p class="text-xs font-semibold uppercase tracking-wider text-accent mb-1">Besök oss</p>
+        <p class="text-gray-900 font-medium">Stockholm, Solna</p>
+      </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════
+       FOOTER
+  ═══════════════════════════════════════════════ -->
+  <footer class="bg-gray-900 text-gray-400 py-12">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
+        <div>
+          <p class="font-display font-semibold text-white text-xl">Chili Masala</p>
+          <p class="text-sm mt-1">Punjabi-restaurang · Stockholm, Solna</p>
+        </div>
+        <div class="text-sm md:text-right space-y-1">
+          
+          <p class="text-xs text-gray-500">&copy; 2026 Chili Masala. Alla rättigheter förbehållna.</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.12, rootMargin: '0px 0px -80px 0px' }
+    );
+    document.querySelectorAll('.fade-on-scroll').forEach((el) => observer.observe(el));
+  </script>
+</body>
+</html>
